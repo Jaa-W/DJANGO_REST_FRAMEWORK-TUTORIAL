@@ -1,8 +1,16 @@
-from rest_framework import serializers
-import rest_framework
-from rest_framework import fields
-from rest_framework.fields import ReadOnlyField
+from django.db import models
+from rest_framework import fields, serializers
 from posts.models import Post
+from django.contrib.auth.models import User
+
+class UserSerializer(serializers.ModelSerializer):
+    posts = serializers.PrimaryKeyRelatedField(many = True, queryset = Post.objects.all())          # many beacouse users could have many posts
+    owner = serializers.ReadOnlyField(source = 'owner.username')
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'posts', 'owner']
+
 
 class PostSerializer(serializers.ModelSerializer):
     class Meta:
