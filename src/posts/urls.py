@@ -1,27 +1,16 @@
 from django.urls import path
+from django.urls.conf import include
 from posts import views
 from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework.routers import DefaultRouter
 
-# Settings views from ViewSet
-post_list = views.PostViewSet.as_view({
-    'get': 'list',
-    'post': 'create'
-})
-post_detail = views.PostViewSet.as_view({
-    'get': 'retrieve',
-    'put': 'update',
-    'patch': 'partial_update',
-    'delete': 'destroy'
-})
+# Creating router
+router = DefaultRouter()
+router.register(r'posts', views.PostViewSet)
+router.register(r'users', views.UserViewSet)
 
-user_list = views.UserViewSet.as_view({'get': 'list'})
-user_detail = views.UserViewSet.as_view({'get': 'retrieve'})
 
 # URLS
-urlpatterns = format_suffix_patterns([
-    path('posts/', post_list, name='post-list'),
-    path('posts/<int:pk>/', post_detail, name='post-detail'),
-    path('users/', user_list, name='user-list'),
-    path('users/<int:pk>/', user_detail, name='user-detail'),
-    path('', views.api_root)
+urlpatterns = ([
+    path('', include(router.urls)),
 ])
