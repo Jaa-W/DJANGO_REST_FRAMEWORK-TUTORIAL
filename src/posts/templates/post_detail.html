@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+{%if post%}
+    <h2 style="text-align: center">{{post.title}} </h2>
+    <p style="font-style: italic;">{{post.author}}</p>
+    <p style="font-style: italic;">{{post.content}} </p>
+{%else%}
+    <p> Post not exist!!!</p>
+{%endif%}
+{% endblock contents%}

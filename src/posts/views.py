@@ -1,4 +1,5 @@
 from django import template
+from django.db.models.query import QuerySet
 from rest_framework import permissions, viewsets
 from posts.models import Post
 from django.contrib.auth.models import User
@@ -24,3 +25,8 @@ class PostViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):                       # Adding information about user to created post
         serializer.save(owner = self.request.user)
+    
+    def retrieve(self, request, pk=None):
+        post_data =Post.objects.get(id = pk)
+        data = {'post': post_data}
+        return render(request, 'post_detail.html', data)

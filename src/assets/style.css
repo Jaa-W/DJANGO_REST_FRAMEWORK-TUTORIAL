@@ -1,6 +1,14 @@
 body{
     background-color: #201c33;
     background-image: url(images/nigthSkyBackground.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.field{
+    background-color: #201c33;
+    text-align: center;
 }
 
 h1{
