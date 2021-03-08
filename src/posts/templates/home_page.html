@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<h2> Last posts: </h2>
+{%if posts%}
+    {%for p in posts%}
+        <p style="font-size: 30px"><a href = "/posts/{{p.id}}">{{p.title}} </a></p>
+        <p>{{p.content}}</p>
+    {%endfor %}
+{%else%}
+    <p> None published posts</p>
+{%endif%}
+{% endblock contents%}

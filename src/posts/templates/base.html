@@ -1,0 +1,24 @@
+{% load static from static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>HOMEPAGE</title>
+        <link rel= "stylesheet"href="{% static 'style.css'%}">
+    </head>
+    <body>
+    <div1> 
+        <h1>Homepage of my first blog</h1>
+    </div1>
+    <div style="clear:both"></div>
+    <div2 style="width:200px; float:left">
+        <h2>MENU:</h2>
+        <p><a href="/posts/">See all posts</a></p>
+        <p><a href="/users/">See all users</a></p>
+    </div2>
+    <div3 style="width:700px; float:left">
+        {% block contents %}{% endblock contents%}
+    </div3>
+    <div style="clear: both"></div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+body{
+    background-color: #201c33;
+    background-image: url(images/nigthSkyBackground.jpg);
+}
+
+h1{
+    color:#d0e1dc;
+    text-decoration: solid;
+    font-size: 60px;
+    font-style: italic;
+    font-family: 'Segoe UI';
+}
+h2{
+    color:#d0e1dc;
+    text-decoration: solid;
+    font-size: 40px;
+}
+
+a:link, a:visited{
+    color:#d0e1dc;
+    text-decoration: solid;
+}
+
+p{
+    color:#d0e1dc;
+    text-decoration: solid;
+}
